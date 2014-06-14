@@ -2673,6 +2673,11 @@ function! s:initNerdTreeInPlace(dir)
     let b:NERDTreeType = "secondary"
 
     call s:renderView()
+    try
+        let previousPath = s:Path.New(previousBuf)
+        call b:NERDTreeRoot.reveal(previousPath)
+    catch
+    endtry
 endfunction
 " FUNCTION: s:initNerdTreeMirror() {{{2
 function! s:initNerdTreeMirror()
